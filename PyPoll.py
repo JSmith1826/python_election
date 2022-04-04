@@ -55,81 +55,129 @@ with open(file_to_load) as election_data:
 
          # Add a vote to candidate count.
         candidate_votes[candidate_name] += 1
+   
+   
+# Save Results to a txt file
+with open(file_to_save, "w") as txt_file:
+        # Create election results vari
+    election_results = (
+        f"\nElection Results\n"
+        f"-----------------------\n"
+        f"Total Votes Cast: {total_votes}\n"
+        f"-----------------------")
+        
+    print(election_results, end ="")
 
-# Calculate the % of votes for each candidate using a loop to count
-# 1 Iterate through the list
-for candidate_name in candidate_votes:
-    # Get Vote Count
-    votes = candidate_votes[candidate_name]
+    # After printing in terminal save to txt file
+    txt_file.write(election_results)
 
-    # Calculate the percentage
-    vote_percentage = float(votes) / float(total_votes) * 100
-
-    # print summary of each candidate to the terminal
-    print(f"{candidate_name}: {vote_percentage:.1f}%  ({votes:,})\n")
-
-    # Determin winner and winning count
-    # check if the votes are greater than the winning count
-    if (votes > winning_count) and (vote_percentage > winning_per):
-        # If True set winning count equal to votes and vote % = winning %
-        winning_count = votes
-        winning_per = vote_percentage
-
-        # Set winner to candidate name
-        winner = candidate_name
-
-winning_candidate_summary = (
-    f"-------------------------\n"
-    f"Winner: {winner}\n"
-    f"Winning Vote Count: {winning_count:,}\n"
-    f"Winning Percentage: {winning_per:.1f}%\n"
-    f"-------------------------\n")
-print(winning_candidate_summary)
+                    
 
 
-# # Output winner's info
-# winner_summary = (
-#     f"-----------------------\n"
-#     f"And the winner is: {winner}!"
-#     f"{winner} received: {winning_count}\n"
-#     f"For a total of {winning_per:.1f}% of the vote\n"
-#     f"------------------------\n"
-# print(winner_summary)
+        
+        # # Results for each candidate
+        #     winning_candidate_summary = (
+        #     f"-------------------------\n"
+        #     f"Winner: {winner}\n"
+        #     f"Winning Vote Count: {winning_count:,}\n"
+        #     f"Winning Percentage: {winning_per:.1f}%\n"
+        #     f"-------------------------\n")
+        # #  print(winning_candidate_summary)
 
-    # # Print the candidate's name and the % of total vote each received
-    # print(f"{candidate_name}: received {vote_percentage:.1f}% of the toal votes cast.")
+        
+        # #  # # Save the final vote count to txt
+        # #  txt_file.write(election_results)
+        # #  # txt_file.write(candidate_results)
+        # #  txt_file.write(winning_candidate_summary)
 
-
-
-# #Print the total votes
-# print(candidate_votes)
-
-    # # Print each row of the ED file
-    # for row in file_reader:
-    #     print(row)
-
-
-# # Opening output file in write mode
+            
 # with open(file_to_save, "w") as txt_file:
+    # Calculate the % of votes for each candidate using a loop to count
+    # 1 Iterate through the list
+    for candidate_name in candidate_votes:
+        # Get Vote Count
+        votes = candidate_votes[candidate_name]
 
-# # # Write some test data into file
-# # txt_file.write(""Hello World")
+        # Calculate the percentage
+        vote_percentage = float(votes) / float(total_votes) * 100
 
-#     # Writing county names to file
-#     txt_file.write("Counties in the Election\n------------------------\n")
-#     txt_file.write("Arapahoe\n")
-#     txt_file.write("Denver\n")
-#     txt_file.write("Jefferson")
+        candidate_results = (
+            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+        
+        
+        # Print each candidate, their voter count, and percentage to the terminal.
+        print(candidate_results)
+
+        #  Save the candidate results to our text file.
+        txt_file.write(candidate_results)
+         # # Save the final vote count to txt
+        # txt_file.write(election_results)
+        # #      # txt_file.write(candidate_results)
+        # # txt_file.write(winning_candidate_summary)
 
 
-# # # Close output file
-# # txt_file.close()
 
-# #1 The total number of votes cast
-# #2 A complete list of canidates who recieved votes
-# #3 The percentage of votes each canidate won
-# #4 The total number of votes each canidate won
-# #5 The winner of the elction based on the popular vote
+        # print(f"{candidate_name}: {vote_percentage:.1f}%  ({votes:,})\n")
 
-# # Close the file
-# # election_data.close()
+
+        # Determin winner and winning count
+        # check if the votes are greater than the winning count
+        if (votes > winning_count) and (vote_percentage > winning_per):
+            # If True set winning count equal to votes and vote % = winning %
+            winning_count = votes
+            winning_per = vote_percentage
+
+            # Set winner to candidate name
+            winner = candidate_name
+    # candidate_results = (f"{candidate_name}: received {vote_percentage:.1f}% of the toal votes cast.")
+
+
+
+    # Output winner's info
+    winner_summary =(
+        f"-----------------------\n"
+        f"And the winner is: {winner}!"
+        f"{winner} received: {winning_count}\n"
+        f"For a total of {winning_per:.1f}% of the vote\n"
+        f"------------------------\n")
+    print(winner_summary)
+    # Save this summary to txt file
+    txt_file.write(winner_summary)
+
+
+        # # Print the candidate's name and the % of total vote each received
+   
+
+     
+    # #Print the total votes
+    # print(candidate_votes)
+
+        # # Print each row of the ED file
+        # for row in file_reader:
+        #     print(row)
+
+
+    # # Opening output file in write mode
+    # with open(file_to_save, "w") as txt_file:
+
+    # # # Write some test data into file
+    # # txt_file.write(""Hello World")
+
+    #     # Writing county names to file
+    #     txt_file.write("Counties in the Election\n------------------------\n")
+    #     txt_file.write("Arapahoe\n")
+    #     txt_file.write("Denver\n")
+    #     txt_file.write("Jefferson")
+
+
+    # # # Close output file
+    # # txt_file.close()
+
+    # #1 The total number of votes cast
+    # #2 A complete list of canidates who recieved votes
+    # #3 The percentage of votes each canidate won
+    # #4 The total number of votes each canidate won
+    # #5 The winner of the elction based on the popular vote
+
+    # # Close the file
+    # # election_data.close()
