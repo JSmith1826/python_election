@@ -64,7 +64,7 @@ with open(file_to_save, "w") as txt_file:
         f"\nElection Results\n"
         f"-----------------------\n"
         f"Total Votes Cast: {total_votes}\n"
-        f"-----------------------")
+        f"-----------------------\n")
         
     print(election_results, end ="")
 
@@ -136,9 +136,9 @@ with open(file_to_save, "w") as txt_file:
     # Output winner's info
     winner_summary =(
         f"-----------------------\n"
-        f"And the winner is: {winner}!"
-        f"{winner} received: {winning_count}\n"
-        f"For a total of {winning_per:.1f}% of the vote\n"
+        f"And the winner is: {winner}!\n"
+        f"Who received {winning_count} votes\n"
+        f"{winning_count} votes is {winning_per:.1f}% of the total cast\n"
         f"------------------------\n")
     print(winner_summary)
     # Save this summary to txt file
