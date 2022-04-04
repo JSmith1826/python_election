@@ -7,17 +7,25 @@ import os
 # Assign a variable for the file to load and the path
 file_to_load = os.path.join("Resources","election_results.csv")
 
+# Assign filename variable for indirect path to the write file
+file_to_save = os.path.join("analysis", "election_analysis.txt")
 
 
 # Open the results file in read mode
 with open(file_to_load) as election_data:
 
-#     #To Do: analysis and all the fun stuff
+#   #To Do: analysis and all the fun stuff
+    file_reader = csv.reader(election_data)
 
-    print(election_data)
+    # Print the Header row
+    headers = next(file_reader)
+    print(headers)
 
-# Create a filename variable to for indirect path to the write file
-file_to_save = os.path.join("analysis", "election_analysis.txt")
+    # # Print each row of the ED file
+    # for row in file_reader:
+    #     print(row)
+
+
 
 # Opening output file in write mode
 with open(file_to_save, "w") as txt_file:
