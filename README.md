@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-As an employee of the Colorado Board of Elections you have been tasked with analysising a CSV file with election data from three counties, conducting an audit and producing a report that contains the following information:
+As an employee of the Colorado Board of Elections you have been tasked with analyzing a CSV file with election data from three counties, conducting an audit and producing a report that contains the following information:
 - The total number of votes cast
-- A complete list of canidates who received votes
+- A complete list of candidates who received votes
 - The total votes each candidate received
 - The percentage of the vote each candidate received
 - The winner of the election, based on the popular vote.
@@ -19,6 +19,7 @@ As an employee of the Colorado Board of Elections you have been tasked with anal
 
 ## Summary
 
+### Results
 The analysis of the election shows that: 
 
 * There were 369,711 total votes cast
@@ -31,8 +32,5 @@ The analysis of the election shows that:
     * Diana DeGette
 * Denver County had the largest turnout with 306,055 votes cast, 82.8% of all votes counted
 
-
-
-
-
-BC Week 3 - Python Intro
+### Recommendations
+The code written to analysis the results of the three test counties in the data set could easily be refactored and applied to all votes, across all counties state wide. Compiling and reporting election results in the way increases the speed of reporting results and adds transparency to the process.
